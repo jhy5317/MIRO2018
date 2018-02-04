@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="/css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="/css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+  <link rel="stylesheet" href="/css/custom.css" type="text/css" />
+	<link rel="stylesheet" href="/css/responsive.css" type="text/css" />
+	<link rel="icon" type="image/png" href="/images/miro-favicon.jpg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="/css/components/bs-select.css" type="text/css" />
+	<link rel="stylesheet" href="/css/components/bs-filestyle.css" type="text/css" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Apply Check | MRIO2018</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<section id="slider" class="full-screen">
+
+			<div class="full-screen dark" style="background-image: url('images/parallax/home/6.jpg');background-position: 50% 0; min-height:100vh;">
+
+				<div class="container clearfix">
+
+					<div id="contact-form-overlay" class="clearfix" style="margin-top:10%; margin-bottom:10%;">
+
+						<div class="fancy-title title-dotted-border">
+							<h3>지원확인 페이지</h3>
+						</div>
+
+						<div class="contact-widget">
+
+							<div class="contact-form-result"></div>
+
+							<!-- Contact Form
+							============================================= -->
+
+								<div class="col_five_sixth">
+									<label for="template-contactform-studentnumber">학번 </label>
+									<input type="number" id="userStudentnumber" name="studentnumber" value="" class="sm-form-control required" />
+								</div>
+
+								<div class="col_one_sixth col_last">
+									<label> </label>
+									<button class="button button-3d" style="width: 100% !important; margin-left: 0px !important; top:5px !important;" type="button" onClick="showApply();">지원확인</button>
+								</div>
+
+
+								<div class="clear"></div>
+
+								<div class="col_full">
+									<label for="template-contactform-motive">지원확인 </label>
+								</div>
+								<div class="col-xs-12">
+									<div id="showing"></div>
+									<div id="showing1"></div>
+								</div>
+
+
+
+						</div>
+
+
+						<div class="clear"></div>
+
+					</div><!-- Contact Form Overlay End -->
+
+				</div>
+
+			</div>
+
+		</section>
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/plugins.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="/js/functions.js"></script>
+
+	<!-- 지원정보 ajax콜 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	  <script>
+	    function showApply(){
+	      axios.post('/showApply', {
+	        studentnumber: document.getElementById('userStudentnumber').value
+	      })
+	      .then(function(res){
+	        if(res.data.success == true){
+						console.log(res.data);
+					document.getElementById("userStudentnumber").value = ""
+	        document.getElementById("showing").innerHTML =""
+	        document.getElementById("showing1").innerHTML =""
+	        var node = document.createElement("h3");
+	        var node1 = document.createElement("h3");
+	        var node2 = document.createElement("h3");
+	        var node3 = document.createElement("h3");
+	        var node4 = document.createElement("h3");
+	        var form = document.createElement("form");
+	        var button = document.createElement("button");
+	        var textnode = document.createTextNode("이름: "+res.data.name);
+	        var textnode1 = document.createTextNode("학년: "+res.data.grade+" "+res.data.atten);
+	        var textnode2 = document.createTextNode("학과(부): "+res.data.major);
+	        var textnode3 = document.createTextNode("학번: "+res.data.studentnumber);
+	        var textnode4 = document.createTextNode("전화번호: "+res.data.phonenumber);
+	        var buttonText = document.createTextNode("창 닫기");
+	        node.appendChild(textnode);
+	        node1.appendChild(textnode1);
+	        node2.appendChild(textnode2);
+	        node3.appendChild(textnode3);
+	        node4.appendChild(textnode4);
+	        form.appendChild(button);
+	        form.setAttribute("action", "/closeWin");
+	        form.setAttribute("method", "post");
+	        button.appendChild(buttonText);
+	        button.setAttribute("type", "submit");
+	        button.setAttribute("class", "button button-3d");
+	        button.setAttribute("style", "width:50%;");
+	        document.getElementById("showing").appendChild(node);
+	        document.getElementById("showing").appendChild(node1);
+	        document.getElementById("showing").appendChild(node2);
+	        document.getElementById("showing").appendChild(node3);
+	        document.getElementById("showing").appendChild(node4);
+	        document.getElementById("showing1").appendChild(form);
+	      }else {
+	        document.getElementById("showing").innerHTML =""
+	        document.getElementById("showing1").innerHTML =""
+	        var node = document.createElement("h3");
+	        var form = document.createElement("form");
+	        var button = document.createElement("button");
+	        var textnode = document.createTextNode("신청되지 않았습니다.");
+	        var buttonText = document.createTextNode("창 닫기");
+	        node.appendChild(textnode);
+	        form.appendChild(button);
+	        form.setAttribute("action", "/closeWin");
+	        form.setAttribute("method", "post");
+	        button.appendChild(buttonText);
+	        button.setAttribute("type", "submit");
+	        button.setAttribute("class", "button button-3d");
+	        button.setAttribute("style", "width:50%;");
+	        document.getElementById("showing").appendChild(node);
+	        document.getElementById("showing1").appendChild(form);
+	      }
+	      })
+	      .catch(function(err){
+	        console.log(err)
+	      });
+	    }
+	  </script>
+
+
+	</body>
+
+</body>
+</html>

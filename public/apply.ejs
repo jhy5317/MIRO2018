@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css" type="text/css" />
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<link rel="icon" type="image/png" href="images/miro-favicon.jpg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="demos/agency/agency.css" type="text/css" />
+
+
+	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
+
+
+
+	<style>
+	.white-section {
+		background-color: #FFF;
+		padding: 25px 20px;
+		-webkit-box-shadow: 0px 1px 1px 0px #dfdfdf;
+		box-shadow: 0px 1px 1px 0px #dfdfdf;
+		border-radius: 3px;
+	}
+
+	.white-section label {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	.white-section pre { margin-top: 15px; }
+
+	.dark .white-section {
+		background-color: #111;
+		-webkit-box-shadow: 0px 1px 1px 0px #444;
+		box-shadow: 0px 1px 1px 0px #444;
+	}
+	</style>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Apply | MIRO2018</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+			<section id="slider" class="full-screen">
+
+			<div class="full-screen dark" style="background-image: url('images/landing/landing1.jpg');background-position: 50% 0;">
+
+				<div class="container clearfix">
+
+					<div id="contact-form-overlay" class="clearfix" style="margin-top: 3%; margin-bottom:3%">
+
+						<div class="fancy-title title-dotted-border">
+							<h3>동아리 지원 신청서</h3>
+						</div>
+
+						<div class="contact-widget">
+
+							<div class="contact-form-result"></div>
+
+							<!-- Contact Form
+							============================================= -->
+							<form action="/applyMiro" method="post" id="Apply_form" enctype="multipart/form-data">
+
+								<div class="col_half">
+									<label for="template-contactform-name">이름 <small>*</small></label>
+									<input type="text" id="template-contactform-name" name="name" value="" class="sm-form-control required" />
+								</div>
+
+								<div class="col_half col_last">
+									<label for="template-contactform-major">학과(부) <small>*</small></label>
+									<input type="text" id="template-contactform-major" name="major" value="" class="required sm-form-control" />
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_half">
+									<label for="template-contactform-studentnumber">학번 <small>*</small></label>
+									<input type="number" id="template-contactform-studentnumber" name="studentnumber" value="" class="sm-form-control" />
+								</div>
+
+								<div class="col_half col_last">
+									<label for="template-contactform-grade">학년(숫자만 입력해주세요.) <small>*</small></label>
+									<input type="number" id="template-contactform-grade" name="grade" value="" class="sm-form-control" />
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_three_fourth">
+									<label for="template-contactform-phone">전화번호 <small>*</small></label>
+									<input type="number" id="template-contactform-phone" name="phonenumber" value="" class="required sm-form-control" />
+								</div>
+
+								<div class="col_one_fourth col_last">
+									<label for="template-contactform-attendance">재적 <small>*</small></label>
+										<select class="selectpicker" name="attendance">
+  										<option value="atten">재학</option>
+  										<option value="abs">휴학</option>
+										</select>
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_full">
+									<label for="template-contactform-timetable">시간표(면접일정을 잡기위해 사용합니다. 휴학생의경우 올려주시지 않으셔도 됩니다.) </label>
+									<input id="input-10" name='timetable' type="file" multiple class="file-loading">
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_full">
+									<label for="template-contactform-motive">지원동기(200자 이내) <small>*</small></label>
+									<textarea class="required sm-form-control" id="template-contactform-motive" name="motive" rows="3" cols="30" placeholder="꼭 작성해주세요. 선발결과에 영향있음."></textarea>
+								</div>
+
+								<div class="col_full">
+							    <label for "template-contactform-checking">위의 제출사항을 한번 더 확인해주시고 틀린 부분이 없으시면 '확인'을 입력해주세요. <small>*</small></label>
+							    <input type="text" name="checking" class="required sm-form-control" />
+							  </div>
+
+								<div class="clear"></div>
+
+								<div class="col_half">
+									<button class="button button-3d" style="width: 100% !important; margin-left: 0px !important;" type="button" onClick="document.getElementById('Apply_form').submit();">지원하기</button>
+								</div>
+
+							</form>
+
+								<div class="col_half col_last">
+									<button class="button button-3d" style="width: 100% !important; margin-left: 0px !important;" onClick="checkingApply();">지원확인</button>
+								</div>
+
+						</div>
+
+
+						<div class="line"></div>
+
+					</div><!-- Contact Form Overlay End -->
+				</div>
+
+			</div>
+
+			</section>
+
+	</div>
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/plugins.js"></script>
+
+	<!-- Bootstrap File Upload Plugin -->
+	<script type="text/javascript" src="../js/components/bs-filestyle.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="/js/functions.js"></script>
+
+	<!-- 지원확인페이지 띄우기 -->
+	<script>
+			function checkingApply(){
+				window.open('applycheck','_blank','width:400px, height:400px');
+			}
+	</script>
+
+					<!-- Bootstrap Select Plugin -->
+					<script type="text/javascript" src="/js/components/bs-select.js"></script>
+
+					<!-- Select Splitter Plugin -->
+					<script type="text/javascript" src="/js/components/selectsplitter.js"></script>
+
+					<script  type="text/javascript">
+						window.onload = function(){
+							$("#input-10").fileinput({
+								showUpload: false,
+								layoutTemplates: {
+									main1:
+									"<div class=\'input-group {class}\'>\n" +
+									"   <div class=\'input-group-btn\'>\n" +
+									"       {browse}\n" +
+									"       {upload}\n" +
+									"       {remove}\n" +
+									"   </div>\n" +
+									"   {caption}\n" +
+									"</div>"
+								}
+							});
+						}
+					</script>
+
+
+</body>
+</html>
